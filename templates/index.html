@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%;">
+<head>
+    <title>Damaged Road Detection</title>
+
+    <link rel="stylesheet"
+          type="text/css"
+          href="../static/styles.css">
+</head>
+<body style="width:100%;height:100%;">
+    <center>
+        <h1>Damaged Road Detection App</h1>
+        <div>
+            <div id="detectionOptions">
+                <h3 style="margin:0px;">
+                    Detection Using Camera
+                </h3>
+                <a href="{{ url_for('videoIndex')}}">
+                    Detection Using Video
+                </a>
+            </div>
+
+            <div style = "width:50%;
+                background-color:gray;
+                height:500px;
+                margin:0px">
+                <img src = "{{ url_for('video') }} " enctype="multipart/form-data"
+                     style = "width:100%; height:100%;"/>
+            </div><br>
+
+            <form method = "post"
+                  action = "{{ url_for('task') }}">
+                <input type = "submit"
+                       value = "Stop/Start"
+                       name = "stop"/><br><br>
+                <input type = "submit"
+                       value = "Download Camera Result"
+                       name = "get_DetStream"/><br><br><br>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%;">
+<head>
+    <title>Damaged Road Detection</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='styles.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+          $("#startVideoDet").click(function(){
+            $("#notifProcess").css("visibility", "visible");
+            $("#startVideoDet").disabled();
+          });
+        });
+    </script>
+</head>
+
+<body style="width:100%;height:100%;">
+    <center>
+        <h1>Damaged Road Detection App</h1>
+        <div>
+            <div id="detectionOptions"
+                 style="display:flex;margin:10px 0px;width:30%;
+                        justify-content:space-between">
+              <a href="{{ url_for('index')}}">
+                  Detection Using Camera
+              </a>
+              <h3 style="margin:0px;">
+                  Detection Using Video
+              </h3>
+            </div>
+
+            <form method = "post"
+                  action = "{{ url_for('task') }}"
+                  enctype="multipart/form-data">
+                <input type = "file"
+                       name = "video" required/><br><br>
+
+                {% if error %}
+                    <h3 id="warning"
+                        style="color:red;margin:0px">
+                        {{ error }}
+                    </h3>
+                {% endif %}
+
+                <input type="submit"
+                       id="startVideoDet"
+                       name="startVideoDet"
+                       value="Start Video Detection">
+            </form><br><br>
+
+            <p id="notifProcess">
+                Please wait for the detection process
+            </p>
+        </div>
+    </center>
+</body>
+</html>

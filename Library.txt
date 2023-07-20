@@ -1,0 +1,10 @@
+Flask
+Opencv
+torch
+pandas
+ipython
+psutil
+yaml
+tqdm 
+matplotlib
+seaborn

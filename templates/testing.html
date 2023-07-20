@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%;">
+    <head>
+        <title>Damaged Road Detection</title>
+        <link rel="stylesheet" type="text/css" href="../static/styles.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+              $("#startVideoDet").click(function(){
+                $("#notifProcess").css("visibility", "visible");
+              });
+            });
+        </script>
+    </head>
+
+    <body style="width:100%;height:100%;">
+        <center>
+            <h1>Damaged Road Detection App</h1>
+            <div>
+
+                <input type="submit" id="startVideoDet" name="startVideoDet" value="Start Video Detection">
+
+                <p id="notifProcess">Please wait for detection process</p>
+            </div>
+        </center>
+    </body>
+</html>
